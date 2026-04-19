@@ -1,0 +1,7 @@
+name = "eleanvator-saga"
+version = "0.1.0"
+defaultTargets = ["EleanvatorSaga"]
+
+[[lean_lib]]
+name = "EleanvatorSaga"
+
