@@ -116,7 +116,7 @@ def renderWorld (w : World) (config : ChallengeConfig)
       let reason := match ch.condition with
         | .transportWithinTime count limit =>
           if w.transportedCounter < count then s!"Only transported {w.transportedCounter} / {count}"
-          else s!"Ran out of time"
+          else s!"Ran out of time ({Challenge.fmtFloat limit}s)"
         | .transportWithMaxWait _ maxWait =>
           if w.maxWaitTime > maxWait then s!"Someone waited {mwW}.{mwF}s (max {Challenge.fmtFloat maxWait}s)"
           else s!"Not enough transported"
