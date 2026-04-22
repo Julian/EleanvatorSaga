@@ -1,5 +1,6 @@
 import EleanvatorSaga.Sim.World
 import EleanvatorSaga.Render
+import EleanvatorSaga.RenderSvg
 import EleanvatorSaga.Challenge
 import ProofWidgets.Component.RefreshComponent
 import ProofWidgets.Component.HtmlDisplay
@@ -10,10 +11,10 @@ open ProofWidgets Jsx Lean Server Widget Elab Command
 
 namespace EleanvatorSaga
 
-/-- Render the world state as Html. -/
+/-- Render the world state as Html for the infoview. -/
 def renderHtml (w : Sim.World) (config : ChallengeConfig)
     (challenge? : Option (Nat × Challenge) := none) : Html :=
-  .element "pre" #[] #[.text (renderWorld w config challenge?)]
+  renderSvgHtml w config challenge?
 
 /-- Current play speed, settable via `#play_speed N`. -/
 initialize playSpeed : IO.Ref Nat ← IO.mkRef 1
